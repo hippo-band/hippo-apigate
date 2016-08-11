@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cloud.igoldenbeta.hippo.mapper.ServiceRouteMapper">
+  <resultMap id="BaseResultMap" type="cloud.igoldenbeta.hippo.model.ServiceRoute" >
+    <id column="id" property="id" />
+    <result column="service_name" property="serviceName" />
+    <result column="service_method" property="serviceMethod" />
+    <result column="service_host" property="serviceHost" />
+    <result column="type" property="type" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+  	id
+    ,service_name
+    ,service_method
+    ,service_host
+    ,type
+    ,created_at
+    ,updated_at
+  </sql>
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_service_route
+    where id = #{id} and is_delete = 0
+  </select>
+
+  <insert id="insert" parameterType="cloud.igoldenbeta.hippo.model.ServiceRoute" useGeneratedKeys="true" keyProperty="id">
+    insert into tb_service_route (
+        <include refid="Base_Column_List" />
+      )
+    values (
+    null
+    ,#{serviceName}
+    ,#{serviceMethod}
+    ,#{serviceHost}
+    ,#{type}
+    ,null
+    ,null
+      )
+  </insert>
+
+
+  <update id="softDelete" parameterType="java.lang.Long" >
+    update tb_service_route set is_delete = 1
+    where id = #{id}
+  </update>
+
+  <update id="updateByIdSelective" parameterType="cloud.igoldenbeta.hippo.model.ServiceRoute" >
+    update tb_service_route
+    <set >
+      <if test="serviceName != null">
+        service_name = #{serviceName},
+      </if>
+      <if test="serviceMethod != null">
+        service_method = #{serviceMethod},
+      </if>
+      <if test="serviceHost != null">
+        service_host = #{serviceHost},
+      </if>
+      <if test="type != null">
+        type = #{type},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+  <update id="updateById" parameterType="cloud.igoldenbeta.hippo.model.ServiceRoute" >
+     update tb_service_route
+    set
+      service_name = #{serviceName},
+      service_method = #{serviceMethod},
+      service_host = #{serviceHost},
+      type = #{type}
+    where id = #{id}
+  </update>
+
+  <select id="selectBySelective" resultMap="BaseResultMap" parameterType="cloud.igoldenbeta.hippo.model.ServiceRoute" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_service_route
+    where is_delete = 0
+    <if test="serviceName != null">
+      and service_name = #{serviceName}
+    </if>
+    <if test="serviceMethod != null">
+      and service_method = #{serviceMethod}
+    </if>
+    <if test="serviceHost != null">
+      and service_host = #{serviceHost}
+    </if>
+    <if test="type != null">
+      and type = #{type}
+    </if>
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_service_route
+    where is_delete = 0
+  </select>
+
+</mapper>
