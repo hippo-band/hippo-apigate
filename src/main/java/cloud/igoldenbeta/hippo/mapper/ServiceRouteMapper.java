@@ -1,12 +1,9 @@
 package cloud.igoldenbeta.hippo.mapper;
 
-import cloud.igoldenbeta.hippo.model.ServiceRoute;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-
 import java.util.List;
 
-//@Mapper
+import cloud.igoldenbeta.hippo.model.ServiceRoute;
+
 public interface ServiceRouteMapper {
 
 	ServiceRoute selectById(Long id);
@@ -21,7 +18,6 @@ public interface ServiceRouteMapper {
 
 	List<ServiceRoute> selectBySelective(ServiceRoute serviceRoute);
 
-//	@Select("SELECT * FROM tb_service_route")
 	List<ServiceRoute> selectAll();
 
 }
