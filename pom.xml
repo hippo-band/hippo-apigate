@@ -28,7 +28,7 @@
 		<!-- commons beanutils -->
 		<commons-beanutils-version>1.9.2</commons-beanutils-version>
 
-		<hippo.version>0.0.2-SNAPSHOT</hippo.version>
+		<hippo.version>0.0.1</hippo.version>
 	</properties>
 
 	<dependencies>
@@ -45,17 +45,17 @@
 
 		<!-- hippo -->
 		<dependency>
-			<groupId>cloud.igoldenbeta</groupId>
+			<groupId>com.github.hippo-band</groupId>
 			<artifactId>hippo-serviceGoven</artifactId>
 			<version>${hippo.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>cloud.igoldenbeta</groupId>
+			<groupId>com.github.hippo-band</groupId>
 			<artifactId>hippo-client</artifactId>
 			<version>${hippo.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>cloud.igoldenbeta</groupId>
+			<groupId>com.github.hippo-band</groupId>
 			<artifactId>hippo-common</artifactId>
 			<version>${hippo.version}</version>
 		</dependency>

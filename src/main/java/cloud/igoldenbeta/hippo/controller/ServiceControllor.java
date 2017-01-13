@@ -1,17 +1,23 @@
 package cloud.igoldenbeta.hippo.controller;
 
-import cloud.igoldenbeta.hippo.client.HippoProxy;
-import cloud.igoldenbeta.hippo.framework.ResponseEntity;
-import cloud.igoldenbeta.hippo.utils.HttpAnalysisUtils;
-import cloud.igoldenbeta.hippo.utils.RouteRulesUtils;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.github.hippo.client.HippoProxy;
+
+import cloud.igoldenbeta.hippo.framework.ResponseEntity;
+import cloud.igoldenbeta.hippo.utils.HttpAnalysisUtils;
+import cloud.igoldenbeta.hippo.utils.RouteRulesUtils;
 
 /**
  * Created by hanruofei on 16/8/4.
