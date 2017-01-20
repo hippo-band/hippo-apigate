@@ -1,11 +1,11 @@
-package cloud.igoldenbeta;
+package com.github;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("cloud.igoldenbeta.hippo.mapper")
+@MapperScan("com.github.hippo.mapper")
 public class HippoApigateApplication {
 
 	public static void main(String[] args) {

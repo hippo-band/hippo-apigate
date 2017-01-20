@@ -1,9 +1,9 @@
-package cloud.igoldenbeta.hippo.model;
+package com.github.hippo.bean;
 
 /**
  * Created by hanruofei on 16/8/11.
  */
-public class ServiceRoute {
+public class ServiceRouteBean {
 
     private Long id;
     private String serviceName;
@@ -53,7 +53,7 @@ public class ServiceRoute {
 
     @Override
     public String toString() {
-        return "ServiceRoute{" +
+        return "ServiceRouteBean{" +
                 "id=" + id +
                 ", serviceName='" + serviceName + '\'' +
                 ", serviceMethod='" + serviceMethod + '\'' +

@@ -1,8 +1,8 @@
-package cloud.igoldenbeta.hippo.mapper;
+package com.github.hippo.mapper;
 
 import java.util.List;
 
-import cloud.igoldenbeta.hippo.model.ServiceRoute;
+import com.github.hippo.model.ServiceRoute;
 
 public interface ServiceRouteMapper {
 

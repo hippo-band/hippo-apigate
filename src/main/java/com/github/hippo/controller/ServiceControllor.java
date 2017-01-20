@@ -1,4 +1,4 @@
-package cloud.igoldenbeta.hippo.controller;
+package com.github.hippo.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.hippo.client.HippoProxy;
-
-import cloud.igoldenbeta.hippo.framework.ResponseEntity;
-import cloud.igoldenbeta.hippo.utils.HttpAnalysisUtils;
-import cloud.igoldenbeta.hippo.utils.RouteRulesUtils;
+import com.github.hippo.framework.ResponseEntity;
+import com.github.hippo.utils.HttpAnalysisUtils;
+import com.github.hippo.utils.RouteRulesUtils;
 
 /**
  * Created by hanruofei on 16/8/4.

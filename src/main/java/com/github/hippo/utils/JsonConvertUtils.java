@@ -1,4 +1,4 @@
-package cloud.igoldenbeta.hippo.utils;
+package com.github.hippo.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

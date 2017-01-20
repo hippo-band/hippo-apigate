@@ -1,4 +1,4 @@
-package cloud.igoldenbeta.hippo.framework;
+package com.github.hippo.framework;
 
 public class ResponseEntity<E> {
 	private Integer code;

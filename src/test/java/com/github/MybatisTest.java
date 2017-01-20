@@ -1,11 +1,12 @@
-package cloud.igoldenbeta;
+package com.github;
 
-import cloud.igoldenbeta.hippo.mapper.ServiceRouteMapper;
-import cloud.igoldenbeta.hippo.model.ServiceRoute;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.github.hippo.mapper.ServiceRouteMapper;
+import com.github.hippo.model.ServiceRoute;
 
 import java.util.List;
 

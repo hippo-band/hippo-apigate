@@ -1,14 +1,14 @@
-package cloud.igoldenbeta.hippo.service.impl;
+package com.github.hippo.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cloud.igoldenbeta.hippo.bean.ServiceRouteBean;
-import cloud.igoldenbeta.hippo.mapper.ServiceRouteMapper;
-import cloud.igoldenbeta.hippo.service.ServiceRouteService;
-import cloud.igoldenbeta.hippo.utils.BeanAndDtoTransfer;
+import com.github.hippo.bean.ServiceRouteBean;
+import com.github.hippo.mapper.ServiceRouteMapper;
+import com.github.hippo.service.ServiceRouteService;
+import com.github.hippo.utils.BeanAndDtoTransfer;
 
 /**
  * Created by hanruofei on 16/8/11.

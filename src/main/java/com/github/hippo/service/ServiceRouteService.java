@@ -1,8 +1,8 @@
-package cloud.igoldenbeta.hippo.service;
-
-import cloud.igoldenbeta.hippo.bean.ServiceRouteBean;
+package com.github.hippo.service;
 
 import java.util.List;
+
+import com.github.hippo.bean.ServiceRouteBean;
 
 /**
  * Created by hanruofei on 16/8/11.

@@ -1,4 +1,4 @@
-package cloud.igoldenbeta.hippo.utils;
+package com.github.hippo.utils;
 
 import org.apache.commons.beanutils.BeanUtils;
 import java.util.ArrayList;

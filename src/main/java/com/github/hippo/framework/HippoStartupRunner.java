@@ -1,13 +1,14 @@
-package cloud.igoldenbeta.hippo.framework;
+package com.github.hippo.framework;
 
-import cloud.igoldenbeta.hippo.bean.ServiceRouteBean;
-import cloud.igoldenbeta.hippo.cache.RouteCache;
-import cloud.igoldenbeta.hippo.service.ServiceRouteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import com.github.hippo.bean.ServiceRouteBean;
+import com.github.hippo.cache.RouteCache;
+import com.github.hippo.service.ServiceRouteService;
 
 import java.util.List;
 

@@ -1,7 +1,8 @@
-package cloud.igoldenbeta.hippo.utils;
+package com.github.hippo.utils;
 
-import cloud.igoldenbeta.hippo.cache.RouteCache;
 import org.apache.commons.collections.MapUtils;
+
+import com.github.hippo.cache.RouteCache;
 
 import java.util.Map;
 import java.util.Set;
