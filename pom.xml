@@ -28,7 +28,7 @@
 		<spring-mybatis.version>1.2.2</spring-mybatis.version>
 		<!-- commons beanutils -->
 		<commons-beanutils-version>1.9.2</commons-beanutils-version>
-		 <tomcat.version>7.0.52</tomcat.version>
+		 <tomcat.version>7.0.58</tomcat.version>
 
 		<hippo.version>0.0.1</hippo.version>
 	</properties>
