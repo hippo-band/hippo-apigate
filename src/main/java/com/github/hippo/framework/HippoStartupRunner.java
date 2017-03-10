@@ -24,10 +24,10 @@ public class HippoStartupRunner implements CommandLineRunner{
 
     @Override
     public void run(String... strings) throws Exception {
-        LOGGER.info("----- start to load service route cache -----");
-        List<ServiceRouteBean> serviceRouteBeen = serviceRouteService.showAll();
-        LOGGER.info("serviceRouteBeen:{}",serviceRouteBeen);
-        RouteCache.INSTANCE.refreshCache(serviceRouteBeen);
-        LOGGER.info("----- load service route cache success -----");
+   //     LOGGER.info("----- start to load service route cache -----");
+    //    List<ServiceRouteBean> serviceRouteBeen = serviceRouteService.showAll();
+     //   LOGGER.info("serviceRouteBeen:{}",serviceRouteBeen);
+      //  RouteCache.INSTANCE.refreshCache(serviceRouteBeen);
+       // LOGGER.info("----- load service route cache success -----");
     }
 }
