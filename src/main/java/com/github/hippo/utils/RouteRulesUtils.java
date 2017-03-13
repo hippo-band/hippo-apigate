@@ -20,7 +20,8 @@ public class RouteRulesUtils {
      */
     public static String getHost(String serviceName, String methodName){
         Map<String, String> methodHostMap = RouteCache.INSTANCE.getCache(serviceName);
-        if (MapUtils.isEmpty(methodHostMap)) throw new RuntimeException("cache not exist");
+        if (methodHostMap == null || MapUtils.isEmpty(methodHostMap))
+            throw new RuntimeException("cache not exist");
 
         Set<String> methodSet = methodHostMap.keySet();
         if (methodSet.contains(methodName)) return methodHostMap.get(methodName);//Match exactly

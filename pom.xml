@@ -30,7 +30,7 @@
 		<commons-beanutils-version>1.9.2</commons-beanutils-version>
 		 <tomcat.version>7.0.75</tomcat.version>
 
-		<hippo.version>0.0.1</hippo.version>
+		<hippo.version>1.0.0</hippo.version>
 	</properties>
 
 	<dependencies>

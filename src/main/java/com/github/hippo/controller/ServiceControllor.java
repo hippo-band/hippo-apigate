@@ -43,13 +43,22 @@ public class ServiceControllor {
                                                 HttpServletRequest request){
         try {
             String requestURI = request.getRequestURI();
-            String methodName = StringUtils.substringAfter(requestURI, serviceName + "/");
-            String host = RouteRulesUtils.getHost(serviceName, methodName);
+            String methodName = StringUtils.substringAfter(requestURI, "service/" + serviceName + "/");
+            String host = serviceName;
+            try {
+                host = RouteRulesUtils.getHost(serviceName, methodName);
+            }
+            catch (RuntimeException e)
+            {
+                LOGGER.warn("db route empty,use default route rule" + requestURI);
+            }
+
             try {
                 Object o = hippoProxy.apiRequest(host, methodName, HttpAnalysisUtils.resolveRequestToUrl(request));
                 return ResponseEntity.success(o);
             } catch (Throwable e) {
-                return ResponseEntity.error(e.getMessage(),e);
+                LOGGER.error("rpc_exception", e);
+                return ResponseEntity.error(e.getMessage());
             }
         } catch (Exception e) {
             LOGGER.error("getHttp_exception", e);
@@ -65,7 +74,7 @@ public class ServiceControllor {
         try {
             String requestURI = request.getRequestURI();
             String methodName = StringUtils.substringAfter(requestURI, serviceName + "/");
-            String host = RouteRulesUtils.getHost(serviceName, methodName);
+            String host = serviceName.replaceAll("-","."); // RouteRulesUtils.getHost(serviceName, methodName);
             try {
                 Object o = hippoProxy.apiRequest(host, methodName, HttpAnalysisUtils.resolveRequestToBody(request));
                 return ResponseEntity.success(o);
@@ -78,5 +87,14 @@ public class ServiceControllor {
         }
     }
 
+
+
+    @RequestMapping(value = "/{serviceName}/**/",
+            method = {RequestMethod.OPTIONS},
+            produces = {"application/json;charset=UTF-8"})
+    public @ResponseBody ResponseEntity<?> http3(@PathVariable(value = "serviceName") String serviceName,
+                                                 HttpServletRequest request){
+            return ResponseEntity.success(null);
+    }
 
 }
