@@ -2,6 +2,7 @@ package com.github.hippo.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,7 +69,7 @@ public class ServiceControllor {
 
     @RequestMapping(value = "/{serviceName}/**/",
             method = {RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH},
-            produces = {"application/json;charset=UTF-8"})
+            produces = "application/json;charset=UTF-8")
     public @ResponseBody ResponseEntity<?> http2(@PathVariable(value = "serviceName") String serviceName,
                                                 HttpServletRequest request){
         try {
@@ -87,6 +88,33 @@ public class ServiceControllor {
         }
     }
 
+
+
+
+    @RequestMapping(value = "/{serviceName}/**/",
+            method = {RequestMethod.POST,RequestMethod.PUT,RequestMethod.PATCH},
+            headers = {"Content-Type=application/xml","Content-Type=text/xml"})
+    public @ResponseBody ResponseEntity<?> http4(@PathVariable(value = "serviceName") String serviceName,
+                                                 HttpServletRequest request){
+        try {
+            String requestURI = request.getRequestURI();
+            String methodName = StringUtils.substringAfter(requestURI, serviceName + "/");
+            String host = serviceName.replaceAll("-","."); // RouteRulesUtils.getHost(serviceName, methodName);
+
+            try {
+                String xml = HttpAnalysisUtils.resolveRequestToBody(request);
+                Gson gson = new Gson();
+                String jsonPack = gson.toJson(xml);
+                Object o = hippoProxy.apiRequest(host, methodName, jsonPack);
+                return ResponseEntity.success(o);
+            } catch (Throwable e) {
+                return ResponseEntity.error(e.getMessage(),e);
+            }
+        } catch (Exception e) {
+            LOGGER.error("getHttp_exception", e);
+            return ResponseEntity.error(e.getMessage());
+        }
+    }
 
 
     @RequestMapping(value = "/{serviceName}/**/",
