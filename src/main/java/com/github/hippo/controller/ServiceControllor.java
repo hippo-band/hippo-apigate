@@ -80,7 +80,7 @@ public class ServiceControllor {
                 Object o = hippoProxy.apiRequest(host, methodName, HttpAnalysisUtils.resolveRequestToBody(request));
                 return ResponseEntity.success(o);
             } catch (Throwable e) {
-                return ResponseEntity.error(e.getMessage(),e);
+              return ResponseEntity.error(e.getMessage());
             }
         } catch (Exception e) {
             LOGGER.error("getHttp_exception", e);
@@ -108,7 +108,7 @@ public class ServiceControllor {
                 Object o = hippoProxy.apiRequest(host, methodName, jsonPack);
                 return ResponseEntity.success(o);
             } catch (Throwable e) {
-                return ResponseEntity.error(e.getMessage(),e);
+              return ResponseEntity.error(e.getMessage());
             }
         } catch (Exception e) {
             LOGGER.error("getHttp_exception", e);
