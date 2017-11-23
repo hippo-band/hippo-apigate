@@ -1,5 +1,7 @@
 package com.github.hippo.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
@@ -13,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.hippo.bean.ServiceRouteBean;
+import com.github.hippo.cache.RouteCache;
 import com.github.hippo.client.HippoProxy;
 import com.github.hippo.framework.ResponseEntity;
+import com.github.hippo.service.ServiceRouteService;
 import com.github.hippo.util.FastJsonConvertUtils;
 import com.github.hippo.utils.HttpAnalysisUtils;
 import com.github.hippo.utils.RouteRulesUtils;
@@ -32,10 +37,30 @@ public class ServiceControllor {
   @Autowired
   private HippoProxy hippoProxy;
   
+  @Autowired
+  private ServiceRouteService serviceRouteService;
+  
   @ResponseBody
   @RequestMapping(value = "/ping")
   ResponseEntity<?> ping() {
     return ResponseEntity.success("Hello World!");
+  }
+  
+
+  @ResponseBody
+  @RequestMapping(value = "/common/refresh")
+  ResponseEntity<?> refresh() {
+      try {
+          LOGGER.info("----- start to load service route cache -----");
+          List<ServiceRouteBean> serviceRouteBeen = serviceRouteService.showAll();
+          LOGGER.info("serviceRouteBeen:{}", serviceRouteBeen);
+          RouteCache.INSTANCE.refreshCache(serviceRouteBeen);
+          LOGGER.info("----- load service route cache success -----");
+
+          return ResponseEntity.success(serviceRouteBeen);
+      } catch (Exception e) {
+          return ResponseEntity.error("refresh error", e);
+      }
   }
 
   @RequestMapping(value = "/{serviceName}/**/", method = {RequestMethod.GET,
